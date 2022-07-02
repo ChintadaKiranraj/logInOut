@@ -1,52 +1,24 @@
-import {Component} from 'react'
-
 import Welcome from './components/Welcome'
+import ConditionalRender from './components/ConditionalRender'
+import ElementVariables from './components/ElementVariables'
+import TernaryOperaters from './components/TernaryOperaters'
+import Raj from './components/Raj'
 
 import './App.css'
 
-class App extends Component {
-  state = {
-    isLoggedIn: true,
-  }
+const App = () => (
+  <div className="container">
+    <Welcome greeting="conditional rendering" name="User" />
+    <ConditionalRender />
 
-  gotoLogin = () => {
-    this.setState(() => ({
-      isLoggedIn: false,
-    }))
-  }
+    <Welcome greeting="element variables rendering" name="User" />
+    <ElementVariables />
 
-  gotoLogOut = () => {
-    this.setState(() => ({
-      isLoggedIn: true,
-    }))
-  }
+    <Welcome greeting="ternary operation rendering" name="User" />
+    <TernaryOperaters />
 
-  renderBtn = () => {
-    const {isLoggedIn} = this.state
-    if (isLoggedIn) {
-      return (
-        <button type="button" onClick={this.gotoLogin}>
-          LogOut
-        </button>
-      )
-    }
-
-    return (
-      <button type="button" onClick={this.gotoLogOut}>
-        Login
-      </button>
-    )
-  }
-
-  render() {
-    return (
-      <div className="container">
-        <Welcome greeting="Hello" name="User" />
-
-        {this.renderBtn()}
-      </div>
-    )
-  }
-}
+    <Raj />
+  </div>
+)
 
 export default App
